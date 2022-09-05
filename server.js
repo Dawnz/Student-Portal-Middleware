@@ -23,7 +23,7 @@ app.use(
 
 app.use(
    session({
-      secret: "ecQJ099i5JLW15yU4lnktvrBjiPUuKeJ",
+      secret: process.env.SECRET,
       saveUninitialized: true,
       resave: false,
       cookie: { maxAge: 120000 },
@@ -35,6 +35,7 @@ app.use("/login", auth);
 app.use("/students", students);
 app.use("/coursework", coursework);
 
-app.listen(4000, (req, res) => {
-   console.log("Express running on port 4000");
+app.listen(process.env.PORT, (req, res) => {
+   console.log(`Express running on port ${process.env.PORT}`);
 });
+
